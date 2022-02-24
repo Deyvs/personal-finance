@@ -1,31 +1,26 @@
 const express = require('express');
 const server = express();
 const bodyParser = require('body-parser');
-const { create,
-        readAll,
-        readById,
-        deleteById,
-        updateById
-    } = require('./data');
+require('./db');
+const { balance } = require('./model');
 
 server.use(bodyParser.json());
 
-server.get('/finances', (req, res) => {
-    const finances = readAll();
+server.get('/finances', async (req, res) => {
+    const finances = await balance.find({});
     res.json(finances);
 });
 
-server.get('/finances/:financeId', (req, res) => {
-    const financeId = req.params.financeId;
-    const financeIdToInt = parseInt(financeId);
-    const finance = readById(financeIdToInt);
+server.get('/finances/:financeId', async (req, res) => {
+    const financeId = req.params.financeId;    
+    const finance = await balance.findById(financeId);
     res.json(finance);
 });
 
-server.post('/finances', (req, res) => {
+server.post('/finances', async (req, res) => {
     const body = req.body;
 
-    const created = create(body);
+    const created = await balance.create(body);
     res.status(201).json(created); 
 })
 
