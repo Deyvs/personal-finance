@@ -1,8 +1,10 @@
+require('dotenv').config()
 const express = require('express');
 const server = express();
 const bodyParser = require('body-parser');
 require('./db');
 const { balance } = require('./model');
+const PORT = process.env.PORT || 8001;
 
 server.use(bodyParser.json());
 
@@ -24,4 +26,4 @@ server.post('/finances', async (req, res) => {
     res.status(201).json(created); 
 })
 
-server.listen(8001,console.log("Running on port 8001"))
+server.listen(PORT, console.log(`Running on port ${PORT}`))
