@@ -7,6 +7,8 @@ const {
     deleteFinanceById
 } = require('../controllers/finances');
 
+//requisição bate no servidor que chama routes
+
 routes.get('/finances', getFinances);
 routes.get('/finances/:financeId', getFinancesById);
 routes.post('/finances', createFinance);
