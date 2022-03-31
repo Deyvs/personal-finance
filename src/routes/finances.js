@@ -7,12 +7,18 @@ const {
     deleteFinanceById
 } = require('../controllers/finances');
 
+const { 
+    validateBodyFields, 
+    validateFinanceId, 
+    validateBodyFieldsOnUpdate 
+} = require('../middlewares/validate');
+
 //requisição bate no servidor que chama routes
 
 routes.get('/finances', getFinances);
-routes.get('/finances/:financeId', getFinancesById);
-routes.post('/finances', createFinance);
-routes.patch('/finances/:financeId', updateFinanceById);
-routes.delete('/finances/:financeId', deleteFinanceById);
+routes.get('/finances/:financeId', validateFinanceId, getFinancesById);
+routes.post('/finances', validateBodyFields, createFinance);
+routes.patch('/finances/:financeId', validateBodyFieldsOnUpdate, updateFinanceById);
+routes.delete('/finances/:financeId', validateFinanceId, deleteFinanceById);
 
 module.exports = routes;

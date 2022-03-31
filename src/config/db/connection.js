@@ -17,4 +17,4 @@ try {
 }
 
 
-mongoose.connection.on('error', (err) => console.log("Deu merda!!!"))
+mongoose.connection.on('error', (err) => console.log("Deu merda na conexão com o banco!!!"))

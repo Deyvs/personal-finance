@@ -1,4 +1,5 @@
 const { balance } = require('./model/model');
+const { v4: uuidv4 } = require('uuid');
 
 //camada de repositories acessa o DB
 
@@ -13,7 +14,7 @@ const getFinancesById = async (id) => {
 }
 
 const createFinance = async (body) => {
-    const created = await balance.create(body);
+    const created = await balance.create({ ...body, _id: uuidv4() });
     return created;
 }
 

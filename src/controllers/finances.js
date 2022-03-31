@@ -9,21 +9,32 @@ const getFinances =  async (req, res) => {
 
 const getFinancesById = async (req, res) => {
     const financeId = req.params.financeId; //capturando o id que vem na requisição
+
     const finance = await service.getFinancesById(financeId);
     res.json(finance);
 };
 
 const createFinance = async (req, res) => {
-    const body = req.body;
+    const { body } = req;
 
-    const created = await service.createFinance(body);
-    res.status(201).json(created); 
+    try {
+        const created = await service.createFinance(body);
+        res.status(201).json(created); 
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            message: error.message
+        })
+    }
+    
 }
 
 const updateFinanceById = async (req, res) => {
     const financeId = req.params.financeId;
     const body = req.body;
+    
     await service.updateFinanceById(financeId, body);
+
     res.json({
         message: "updated",
     });
@@ -31,7 +42,9 @@ const updateFinanceById = async (req, res) => {
 
 const deleteFinanceById = async (req, res) => {
     const financeId = req.params.financeId;
+
     await service.deleteFinanceById(financeId);
+    
     res.json({
         message: "deleted",
     });
