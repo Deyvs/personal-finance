@@ -4,8 +4,8 @@
   "description": "Aplicação para controle de finanças pessoais",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/nodemon/bin/nodemon.js src/app.js",
+    "up-mongo": "docker-compose up -d"
   },
   "author": "Deyvison Ramos",
   "license": "ISC",
