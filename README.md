@@ -16,14 +16,14 @@ Projeto criado para gerenciamento de finanças pessoais.
 
 5. Rodar a aplicação com o comando: `npm start`
 
-####Variáveis de ambiente
+#### Variáveis de ambiente
 
->PORT=8001 // Porta em que a aplicação vai rodar
-DB_NAME=personal_finance // nome do banco
-DB_HOST=localhost // host do banco
-DB_PORT=27017 // porta do banco
-DB_PASS=123456 // senha de acesso ao banco
-DB_USER=admin // usuário do banco
+    PORT=8001 // Porta em que a aplicação vai rodar
+    DB_NAME=personal_finance // nome do banco
+    DB_HOST=localhost // host do banco
+    DB_PORT=27017 // porta do banco
+    DB_PASS=123456 // senha de acesso ao banco
+    DB_USER=admin // usuário do banco
 
 - É necessário que exista  um usuário com perfil de leitura e escrita configurado no mongo.
 
