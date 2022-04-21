@@ -19,6 +19,6 @@ routes.get('/finances', getFinances);
 routes.get('/finances/:financeId', validateFinanceId, getFinancesById);
 routes.post('/finances', validateBodyFields, createFinance);
 routes.patch('/finances/:financeId', validateBodyFieldsOnUpdate, updateFinanceById);
-routes.delete('/finances/:financeId', validateFinanceId, deleteFinanceById);
+routes.delete('/finances/:financeId', validateFinanceId, deleteFinanceById); 
 
 module.exports = routes;
