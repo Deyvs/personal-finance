@@ -1,10 +1,10 @@
-#Personal Finance
+# Personal Finance
 
 ***
 
 Projeto criado para gerenciamento de finanças pessoais.
 
-####Como rodar o projeto?
+#### Como rodar o projeto?
 
 1. Clonar o projeto: `git clone https://github.com/Deyvs/personal-finance.git`
 
@@ -27,7 +27,7 @@ DB_USER=admin // usuário do banco
 
 - É necessário que exista  um usuário com perfil de leitura e escrita configurado no mongo.
 
-###Endpoints
+### Endpoints
 
 **GET/finances**
 
